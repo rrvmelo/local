@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Localização e Camera</h1>
+    <h1>Localização</h1>
 
     <!--Se tiver erro sai aqui-->
     <div v-if="error">{{ error }}</div>
@@ -14,12 +14,14 @@
         <p>Longitude: {{ longitude }}</p>
         <p>Distância: {{ distance.toFixed(2) }} </p>
         <p>Menor que 300 metros: {{ MenorQue }}</p>
-        <button @click="RequestLocationPermission">
+        <button @click="requestLocationPermission">
           Obter Localização
         </button>
+        <p></p>
       </div>
     </div>
   </div>
+  <Camera />
 </template>
 
 <script>
@@ -39,11 +41,19 @@ export default {
   },
   methods: {
     // Pede permissão e busca a localização do usuário
-    RequestLocationPermission() {
+    requestLocationPermission() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
           this.showPosition,
           this.showError,
+          {
+            //Maior precisão
+            enableHighAccuracy: true,
+            //10 segundos de Timeout para solicitação de localização
+            timeout: 10000,
+            //Não usa a localização em cache
+            maximumAge: 0
+          }
         );
       } else {
         this.error = "Deu erro.";

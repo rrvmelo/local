@@ -1,16 +1,19 @@
 <template>
   <div id="app">
-    <LocalCamera />
+    <Local />
+    <Camera />
   </div>
 </template>
 
 <script>
-import LocalCamera from './components/LocalCamera.vue'
+import Local from './components/Local.vue';
+import Camera from './components/Camera.vue';
 
 export default {
   name: 'App',
   components: {
-    LocalCamera
+    Local,
+    Camera
   }
 }
 </script>
