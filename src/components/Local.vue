@@ -1,5 +1,6 @@
 <template>
   <div>
+    <hr>
     <h1>Localização</h1>
 
     <!--Se tiver erro sai aqui-->
@@ -8,8 +9,8 @@
     <!--Vai que vai-->
     <div v-else>
       <div>
-        <p>Latitude da PMH: {{ latpmh }}</p>
-        <p>Longitude da PMH: {{ lonpmh }}</p>
+        <p>Latitude do Local de Trabalho: {{ latpmh }}</p>
+        <p>Longitude do Local de Trabalho: {{ lonpmh }}</p>
         <p>Latitude: {{ latitude }}</p>
         <p>Longitude: {{ longitude }}</p>
         <p>Distância: {{ distance.toFixed(2) }} </p>
@@ -32,8 +33,6 @@ export default {
       lonpmh: -47.1836421,
       latitude: null,
       longitude: null,
-      //latitude: ,
-      //longitude: ,
       distance: 0,
       MenorQue: false,
       error: null,
@@ -67,7 +66,7 @@ export default {
 
       // Calcula a distância e armazena na variável `distance`
       this.distance = this.haversineDistance(this.latpmh, this.lonpmh, this.latitude, this.longitude);
-      
+
       // Verifica se a distância é menor que 300 metros e armazena o resultado 
       this.MenorQue = this.distance < 300;
     },
