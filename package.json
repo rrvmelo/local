@@ -4,12 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host",
+    "dev": "vite --host",    
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tensorflow/tfjs-node": "^4.20.0",
+    "canvas": "^2.11.2",
     "face-api.js": "^0.22.2",
+    "vite-plugin-mkcert": "^1.17.5",
     "vue": "^3.4.26"
   },
   "devDependencies": {
